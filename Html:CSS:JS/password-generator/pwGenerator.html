@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="pwGenerator.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <h1>Random Password Generator</h1>
+      <input type="range" min="6" max="20" id="password-length" value="6" />
+      <div class="range-value">
+        <span>6</span>
+        <span>20</span>
+      </div>
+      <div class="container">
+        <label for="password-length-display">Password Length</label>
+        <span id="password-length-display"></span>
+        <label for="upper-case">Include Upper Case</label>
+        <input type="checkbox" class="check-box" id="upper-case" />
+        <label for="lower-case">Include Lower Case</label>
+        <input type="checkbox" class="check-box" id="lower-case" />
+        <label for="number">Include Numbers</label>
+        <input type="checkbox" class="check-box" id="number" />
+        <label for="special-character">Include Special Characters</label>
+        <input type="checkbox" class="check-box" id="special-character" />
+      </div>
+      <button id="generate-password-button">Generate Password</button>
+      <button id="copy-password-button">Copy to clipboard</button>
+      <div id="password-display"></div>
+    </div>
+
+    <script src="pwGenerator.js"></script>
+  </body>
+</html>
