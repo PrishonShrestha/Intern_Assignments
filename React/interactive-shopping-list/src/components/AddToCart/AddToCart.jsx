@@ -5,6 +5,7 @@ import { Snackbar } from "@mui/material";
 import useSnackbar from "../../hooks/useSnackbar";
 import useCartControls from "../../hooks/useCartControls";
 import useComponentVisible from "../../hooks/useComponentVisible";
+import useLocalStorage from "../../hooks/useLocalStorage";
 
 const AddToCart = () => {
   const { openSnackbar, snackbarMessage, showSnackbar, setOpenSnackbar } =
@@ -21,6 +22,8 @@ const AddToCart = () => {
 
   const { ref, isComponentVisible, setIsComponentVisible } =
     useComponentVisible();
+
+  // const { localCartData } = useLocalStorage();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [grandTotal, setGrandTotal] = useState(0);
@@ -87,6 +90,8 @@ const AddToCart = () => {
     calculateTotalPrice();
   }, [cartItems.map((item) => item.productTotal).join(",")]);
 
+  // useEffect(() => {}, []);
+
   return (
     <div className="main-container">
       <h1>Shopping cart</h1>
@@ -149,6 +154,7 @@ const AddToCart = () => {
               <th>Remove</th>
             </tr>
           </thead>
+
           {cartItems.length === 0 ? (
             <tbody>
               <tr>

@@ -93,9 +93,9 @@ const copyPassword = () => {
 // Generate new random password
 generate_password_button.addEventListener("click", () => {
   includedText();
-  console.log(password_length.value);
-  console.log(included_text);
-  console.log(unshuffled_password);
+  // console.log(password_length.value);
+  // console.log(included_text);
+  // console.log(unshuffled_password);
   generatePassword();
   displayPassword();
 });
