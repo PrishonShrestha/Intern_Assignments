@@ -24,6 +24,7 @@ const AddToCart = () => {
     useComponentVisible();
 
   // const { localCartData } = useLocalStorage();
+  // useLocalStorage();
 
   const [searchTerm, setSearchTerm] = useState("");
   const [grandTotal, setGrandTotal] = useState(0);
@@ -78,6 +79,7 @@ const AddToCart = () => {
   // Handle clear cart
   const clearCart = () => {
     setCartItems([]);
+    localStorage.clear();
   };
 
   // Update product total
@@ -89,8 +91,6 @@ const AddToCart = () => {
   useEffect(() => {
     calculateTotalPrice();
   }, [cartItems.map((item) => item.productTotal).join(",")]);
-
-  // useEffect(() => {}, []);
 
   return (
     <div className="main-container">

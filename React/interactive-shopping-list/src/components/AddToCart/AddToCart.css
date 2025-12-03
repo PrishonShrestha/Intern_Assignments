@@ -70,13 +70,15 @@
 }
 
 .cart-list-container {
-  background-color: aliceblue;
+  background-color: rgb(220, 242, 247);
   width: 70%;
   min-width: 800px;
   min-height: 200px;
   max-height: 70vh;
   overflow: auto;
   padding: 20px, 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(5, 5, 124);
 }
 
 .cart-list-container table {
@@ -94,11 +96,10 @@ td {
 }
 
 .cart-list-container table th {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(5, 5, 124);
   position: sticky;
   top: 0;
-  background-color: aliceblue;
+  background-color: rgb(220, 242, 247);
 }
 
 .product-container {

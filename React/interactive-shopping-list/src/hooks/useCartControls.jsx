@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const useCartControls = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -49,6 +49,30 @@ const useCartControls = () => {
       prev.filter((item) => item.productID !== product.productID)
     );
   };
+
+  // Load data from local storage on first load
+  useEffect(() => {
+    console.log("Cart Items:" + cartItems.length);
+    const localData = localStorage.getItem("data");
+
+    if (localData && cartItems.length === 0) {
+      const parsedData = JSON.parse(localData);
+      //   setLocalCartData(parsedData);
+      setCartItems(parsedData);
+    }
+  }, []);
+
+  // Add data to local storage
+  useEffect(() => {
+    if (cartItems.length !== 0) {
+      localStorage.setItem("data", JSON.stringify(cartItems));
+    }
+
+    console.log(
+      "Local data after cartitem changes: " + localStorage.getItem("data")
+    );
+    console.log(cartItems);
+  }, [cartItems]);
 
   return {
     cartItems,
