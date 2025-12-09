@@ -1,0 +1,30 @@
+.hero-container {
+  height: calc(60vh + 140px);
+  width: 100%;
+  /* display: flex; */
+  /* position: relative; */
+  /* justify-content: center; */
+  background-color: white;
+}
+.video-container {
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.video-container video {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.top-brands {
+  position: absolute;
+  bottom: -120px;
+  z-index: 10;
+}

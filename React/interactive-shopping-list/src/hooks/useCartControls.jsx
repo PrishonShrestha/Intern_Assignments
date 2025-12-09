@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+import useLocalStorage from "./useLocalStorage";
 
 const useCartControls = () => {
   const [cartItems, setCartItems] = useState([]);
+
+  // useLocalStorage();
 
   // Add product to a cart
   const addProductToCart = (product) => {
@@ -50,7 +53,7 @@ const useCartControls = () => {
     );
   };
 
-  // Load data from local storage on first load
+  //Load data from local storage on first load
   useEffect(() => {
     console.log("Cart Items:" + cartItems.length);
     const localData = localStorage.getItem("data");
@@ -62,7 +65,7 @@ const useCartControls = () => {
     }
   }, []);
 
-  // Add data to local storage
+  //Add data to local storage
   useEffect(() => {
     if (cartItems.length !== 0) {
       localStorage.setItem("data", JSON.stringify(cartItems));
