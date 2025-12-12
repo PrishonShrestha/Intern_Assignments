@@ -1,4 +1,4 @@
-import ProductCard from "../../../../common/components/cards/product_card/ProductCard";
+import ProductCard from "../../../../common/components/Cards/ProductCard/ProductCard";
 import productList from "../../../../data/productList";
 
 import "./ProductList.css";
@@ -7,7 +7,7 @@ const ProductList = () => {
   const navigate = useNavigate();
   return (
     <div className="product-list-container">
-      {productList.map((product, index) => {
+      {productList.map((product) => {
         return (
           <div
             onClick={() =>
@@ -17,7 +17,7 @@ const ProductList = () => {
             }
           >
             <ProductCard
-              key={index}
+              key={product.productID}
               productName={product.productName}
               productImage={product.imageUrl[0]}
               productPrice={product.productPrice}

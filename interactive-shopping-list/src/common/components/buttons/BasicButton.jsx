@@ -1,8 +1,12 @@
 import "./BasicButton.css";
 
-const BasicButton = ({ onClick, buttonTitle }) => {
+const BasicButton = ({ onClick, buttonTitle, maxwidth = "300px" }) => {
   return (
-    <div className="basic-button" onClick={onClick}>
+    <div
+      className="basic-button"
+      onClick={onClick}
+      style={{ maxWidth: maxwidth }}
+    >
       {buttonTitle}
     </div>
   );

@@ -1,11 +1,12 @@
-import BasicButton from "../../../common/components/buttons/BasicButton";
+import BasicButton from "../../../common/components/Buttons/BasicButton";
 import "./ProductDetail.css";
 import productList from "../../../data/productList";
 import brandList from "../../../data/brandList";
-import ProductCard from "../../../common/components/cards/product_card/ProductCard";
+import ProductCard from "../../../common/components/Cards/ProductCard/ProductCard";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useAddToCart from "../hooks/useAddToCart";
+import AddedNotificationCard from "../../../common/components/Cards/Notification/AddedNotificationCard";
 
 const ProductDetail = () => {
   // const location = useLocation();
@@ -24,6 +25,7 @@ const ProductDetail = () => {
 
   const [largeImage, setLargeImage] = useState();
   const [selectedSize, setSelectedSize] = useState(0);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const { addProductToCart, checkIfProductExists } = useAddToCart();
 
@@ -35,6 +37,18 @@ const ProductDetail = () => {
     selectedSize
       ? addProductToCart(product, size)
       : alert("Please Select size");
+
+    checkIfProductExists(currentProduct.productID, selectedSize)
+      ? null
+      : makeModalVisible();
+  };
+
+  //Modal visible
+  const makeModalVisible = () => {
+    setIsModalVisible(true);
+    setTimeout(() => {
+      setIsModalVisible(false);
+    }, 3000);
   };
 
   // Update product
@@ -84,7 +98,9 @@ const ProductDetail = () => {
     // Shuffle  filtered similar products
     const shuffled = shuffle(similar);
 
-    setSimilarProducts(shuffled.slice(0, 6));
+    setSimilarProducts(shuffled.slice(0, 10));
+
+    setSelectedSize("");
   }, [currentProduct]);
 
   return !currentProduct ? (
@@ -189,6 +205,23 @@ const ProductDetail = () => {
             );
           })}
         </div>
+      </div>
+
+      {/* Notification */}
+      <div
+        className={`notification-container ${isModalVisible ? "visible" : ""}`}
+      >
+        {isModalVisible && (
+          <AddedNotificationCard
+            productName={currentProduct.productName}
+            brandName={currentProduct.brandName}
+            productImage={currentProduct.imageUrl[0]}
+            productCategory={currentProduct.productCategory}
+            productPrice={currentProduct.productPrice}
+            productSize={selectedSize}
+            closeModal={() => setIsModalVisible(false)}
+          />
+        )}
       </div>
     </div>
   );

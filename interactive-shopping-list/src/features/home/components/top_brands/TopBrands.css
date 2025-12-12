@@ -8,4 +8,13 @@
   gap: 10px;
   justify-content: space-around;
   align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+@media (max-width: 600px) {
+  .top-brand-container {
+    /* display: flex;
+    flex-wrap: wrap; */
+  }
 }

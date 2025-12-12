@@ -33,16 +33,20 @@
   object-fit: cover;
   object-position: center;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .small-image_container {
-  border-radius: 50px;
+  border-radius: 5px;
   height: 100px;
   width: 100%;
   max-width: 600px;
   display: flex;
   flex-direction: row;
   gap: 20px;
+  cursor: pointer;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .small-image_container img {
@@ -52,6 +56,7 @@
   object-position: center;
   overflow: hidden;
   border-radius: 10px;
+  flex-shrink: 0;
 }
 
 .small-image_container .selected-image {
@@ -144,11 +149,15 @@
 }
 
 .similar-products-container {
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   width: 100%;
+  padding: 0 60px;
+  /* padding-left: min(200px, 10vw);
+  padding-right: min(200px, 10vw); */
+
   /* justify-content: center; */
-  align-items: center;
+  align-items: start;
   flex-direction: column;
 }
 
@@ -159,16 +168,73 @@
   gap: 20px;
   width: 100%;
   height: auto;
-  justify-content: center;
+  justify-content: start;
   overflow-x: auto;
   overflow-y: hidden;
+  scrollbar-width: none;
 }
 
-@media (max-width: 640px) {
+.notification-container {
+  position: fixed;
+  width: 500px;
+  top: 100px;
+  right: 60px;
+  z-index: 999;
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  transition: transform 0.3s ease-in, opacity 0.3s ease;
+  transform: translateX(100%);
+}
+.notification-container.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (max-width: 800px) {
   .detail-center_container {
     flex-direction: column;
   }
   .similar-products-container {
     padding: 20px;
+  }
+  .similar-products {
+    justify-content: start;
+  }
+
+  .large-image_container {
+    max-width: 100%;
+    min-width: 0px;
+  }
+
+  .sizes_container {
+    max-width: 100%;
+  }
+
+  .notification-container {
+    position: fixed;
+    /* display: none;  */
+    visibility: hidden;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  .notification-container.visible {
+    /* display: block; */
+    visibility: visible;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (min-width: 1000px) {
+  .similar-products-container {
+    padding: 0 10vw;
   }
 }

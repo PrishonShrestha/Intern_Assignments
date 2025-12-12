@@ -1,4 +1,7 @@
 .product-card-container {
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
   /* height: 380px;
   width: 300px; */
 
@@ -7,6 +10,7 @@
 
 .product-image {
   width: 100%;
+  overflow: hidden;
   /* height: 280px; */
   /* background-color: blue; */
 }
@@ -20,7 +24,7 @@
 }
 
 .product-image img:hover {
-  scale: 1.05;
+  scale: 1.2;
 }
 
 .product-card-container p,

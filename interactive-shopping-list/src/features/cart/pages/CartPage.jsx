@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import "./CartPage.css";
 import useCart from "../hooks/useCart";
-import useAddToCart from "../../product_detail/hooks/useAddToCart";
-import BasicButton from "../../../common/components/buttons/BasicButton";
+import useAddToCart from "../../ProductDetail/hooks/useAddToCart";
+import BasicButton from "../../../common/components/Buttons/BasicButton";
 import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
 
 const CartPage = () => {
@@ -25,7 +25,7 @@ const CartPage = () => {
   };
 
   // Delivery Charge
-  const deliveryCharge = 10;
+  const deliveryCharge = cartItems.length === 0 ? 0 : 10;
   return (
     <div className="cart-page-container">
       {/* Close button */}
@@ -42,10 +42,12 @@ const CartPage = () => {
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </div>
+
       <div className="left-container">
         <h2>Cart</h2>
         {/* Cart Items */}
-        {cartItems.length > 0 &&
+        {cartItems.length !== 0 ? (
+          cartItems.length > 0 &&
           cartItems.map((product) => {
             return (
               <div className="cart-list">
@@ -80,28 +82,46 @@ const CartPage = () => {
                 </div>
               </div>
             );
-          })}
-        {/* <div className="cart-list">
-          <div className="cart-list_left">
-            <img
-              src="https://imgs.search.brave.com/InMT1VmKml7fDvmWWoHjCkpPbTEIebdzKMqBaDlksvA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/cGl4YWJheS5jb20v/cGhvdG8vMjAyMy8w/NS8xOC8wNS81My9z/bmVha2Vycy04MDAx/Mzk0XzY0MC5qcGc"
-              alt="Product Image"
-            />
-            <div className="button-container">
-              <button>-</button>
-              <span>10</span>
-              <button>+</button>
-            </div>
-          </div>
-          <div className="cart-list_mid">
-            <h4>Nike</h4>
-            <p>Brand Name</p>
-            <p>Category</p>
-          </div>
-          <div className="cart-list_right">
-            <span>$100.00</span>
-          </div>
-        </div> */}
+          })
+        ) : (
+          <div>Your Cart is empty</div>
+        )}
+        {/* {cartItems.length > 0 &&
+          cartItems.map((product) => {
+            return (
+              <div className="cart-list">
+                <div className="cart-list_left">
+                  <img src={product.imageUrl[0]} alt="Product Image" />
+                  <div className="button-container">
+                    <div className="increase-decrease-button-container">
+                      <button onClick={() => handleQuantityDecrease(product)}>
+                        <FaMinus />
+                      </button>
+                      <span>{product.quantity}</span>
+                      <button onClick={() => handleQuantityIncrease(product)}>
+                        <FaPlus />
+                      </button>
+                    </div>
+                    <button
+                      className="trash-button"
+                      onClick={() => removeItem(product)}
+                    >
+                      <FaTrash />
+                    </button>
+                  </div>
+                </div>
+                <div className="cart-list_mid">
+                  <h4>{product.productName}</h4>
+                  <p>{product.brandName}</p>
+                  <p>{product.productCategory}</p>
+                  <p>Size: {product.size}</p>
+                </div>
+                <div className="cart-list_right">
+                  <span>${product.productTotal}</span>
+                </div>
+              </div>
+            );
+          })} */}
       </div>
       <div className="right-container">
         <h2>Summary</h2>
@@ -120,7 +140,7 @@ const CartPage = () => {
         </div>
         <hr />
 
-        <BasicButton buttonTitle="Check Out" />
+        <BasicButton buttonTitle="Check Out" maxwidth="100%" />
       </div>
     </div>
   );

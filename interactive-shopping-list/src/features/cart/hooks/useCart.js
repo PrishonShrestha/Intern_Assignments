@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useAddToCart from "../../product_detail/hooks/useAddToCart";
+import useAddToCart from "../../ProductDetail/hooks/useAddToCart";
 
 const useCart = (cartItems, setCartItems) => {
   // const { cartItems, setCartItems } = useAddToCart();

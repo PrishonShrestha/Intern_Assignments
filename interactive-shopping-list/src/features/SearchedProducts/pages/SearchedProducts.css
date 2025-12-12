@@ -1,15 +1,12 @@
-.product-list-container {
+.searched-product-container {
+  padding: 20px 30px;
   width: 100%;
+  /* display: flex;
+  flex-wrap: wrap; */
   max-width: 1400px;
   margin: 0 auto;
-  padding: 10px 30px;
-  /*
-  padding: 10px 20px;
-  display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
 }

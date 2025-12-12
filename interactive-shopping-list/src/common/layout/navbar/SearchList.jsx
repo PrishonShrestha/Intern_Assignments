@@ -1,6 +1,5 @@
-import ProductCard from "../../components/cards/product_card/ProductCard";
+import ProductCard from "../../components/Cards/ProductCard/ProductCard";
 import "./SearchList.css";
-import productList from "../../../data/productList";
 import { useNavigate } from "react-router-dom";
 
 const SearchList = ({ filteredData }) => {

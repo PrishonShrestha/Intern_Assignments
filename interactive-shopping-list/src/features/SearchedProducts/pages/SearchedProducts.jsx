@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import productList from "../../../data/productList";
-import ProductCard from "../../../common/components/cards/product_card/ProductCard";
+import ProductCard from "../../../common/components/Cards/ProductCard/ProductCard";
 import "./searchedproducts.css";
 
 const SearchedProducts = () => {
@@ -8,7 +8,7 @@ const SearchedProducts = () => {
   const navigate = useNavigate();
 
   const param = searchParams.get("filter").toLowerCase();
-  console.log(param);
+  // console.log(param);
 
   const searchedData = productList.filter(
     (product) =>
