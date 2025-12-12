@@ -48,17 +48,25 @@
 }
 
 .search-box button {
-  height: 40px;
+  height: 30px;
+  width: 30px;
   font-size: 20px;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 10px; */
   border-radius: 100%;
   position: absolute;
   right: 5px;
+  top: 5px;
   border: none;
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.8);
   color: rgb(115, 115, 115);
   backdrop-filter: blur(10px);
+}
+.search-box button:hover {
+  background-color: rgba(248, 248, 248, 0.4);
 }
 
 .search-list {
