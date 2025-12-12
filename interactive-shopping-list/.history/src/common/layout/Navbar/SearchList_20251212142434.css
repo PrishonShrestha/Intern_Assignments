@@ -12,9 +12,8 @@
   box-shadow: 2px 2px 12px rgba(212, 212, 212, 0.4);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .search-list-container {
-    padding: 10px 20px;
     justify-content: start;
     /* padding: 0 20px; */
   }
